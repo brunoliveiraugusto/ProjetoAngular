@@ -3,6 +3,8 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
@@ -12,24 +14,25 @@ describe('AppComponent', () => {
         AppComponent
       ],
     }).compileComponents();
+    const fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('should test add', () => {
+    const first = 5;
+    const second = 10;
+    component.firstNumber = first;
+    component.secondNumber = second;
+    component.add();
+    expect(component.result).toEqual(first + second);
   });
 
-  it(`should have as title 'angular-project'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('angular-project');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('angular-project app is running!');
+  it('should test subtract', () => {
+    const first = 5;
+    const second = 10;
+    component.firstNumber = first;
+    component.secondNumber = second;
+    component.subtract();
+    expect(component.result).toEqual(first - second);
   });
 });

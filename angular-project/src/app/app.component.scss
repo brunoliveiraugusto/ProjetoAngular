@@ -1,0 +1,35 @@
+.container {
+  margin: 50px;
+  height: 100%;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+div {
+  label {
+    display: block;
+  }
+}
+
+.d-flex {
+  display: flex;
+
+  div {
+    margin: 4px;
+
+    button {
+      width: 50px;
+      height: 40px;
+    }
+  }
+}
+
+.content {
+  display: grid;
+  justify-content: center;
+
+  div {
+    margin-bottom: 8px;
+  }
+}
